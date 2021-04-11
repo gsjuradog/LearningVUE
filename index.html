@@ -10,7 +10,19 @@
     <link rel="stylesheet" href="">
   </head>
   <body>
-    <h1>hola</h1>
+    <h1>Outside vue control...</h1>
+    <div id="app">
+      <div v-if="showBooks">
+        <h2>{{title}} por {{author}} escrito cuando tenia {{age}} anos</h2>
+      </div>
+      <button @click="toggleShowBooks">
+        <span v-if="showBooks">Hide books</span>
+        <span v-else>show books</span>
+      </button>
+      <!-- v-show uses css to display elements, v-if adds or takes from Dom -->
+      <div v-show="showBooks">currently showing</div>
+
+    </div>
     <script src="app.js"></script>
   </body>
 </html>
