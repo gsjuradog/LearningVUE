@@ -8,12 +8,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://unpkg.com/vue@3.0.2"></script>
     <link rel="stylesheet" href="">
+    <style>
+      .box{
+        padding: 100px 0;
+        width: 400px;
+        text-align: center;
+        background: #ddd;
+        margin: 20px;
+        display: inline-block;
+      }
+    </style>
   </head>
   <body>
     <h1>Outside vue control...</h1>
+
     <div id="app">
+      <!--v-bind puede sustituirse por 2 puntos-->
+      <a :href="url">Best website?</a>
       <div v-if="showBooks">
-        <h2>{{title}} por {{author}} escrito cuando tenia {{age}} anos</h2>
+        <ul>
+          <li v-for="item in books">
+            <img src="" :alt="item.title">
+            <h2  >{{item.title}} por {{item.author}} escrito cuando tenia {{age}} anos</h2>
+
+          </li>
+        </ul>
       </div>
       <button @click="toggleShowBooks">
         <span v-if="showBooks">Hide books</span>
@@ -21,6 +40,14 @@
       </button>
       <!-- v-show uses css to display elements, v-if adds or takes from Dom -->
       <div v-show="showBooks">currently showing</div>
+      <br>
+      <!--mouse events-->
+      <div class="box" @mouseover="handleEvent">Mouseover (enter)</div>
+      <!--mouse events with extra argument have to include $event as the first argument -->
+      <div class="box" @mouseleave="handleEvent($event, 5)">Mouseleave</div>
+      <div class="box" @dblclick= "handleEvent">Double click</div>
+      <div class="box" @mousemove="handleMousemove">mouse position in x = {{x}} and y = {{y}}</div>
+
 
     </div>
     <script src="app.js"></script>
