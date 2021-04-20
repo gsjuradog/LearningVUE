@@ -11,9 +11,9 @@ const app = Vue.createApp({
       x:0,
       y:0,
       books: [
-        {title: 'name of the wind', author: 'patrick rothfuss', img:'assets/1.jpg'},
-        {title: 'wind of the name', author: 'rothfuss patrick'},
-        {title: 'of the wind name', author: 'p. rothfuss'},
+        {title: 'name of the wind', author: 'patrick rothfuss', img:'assets/1.jpg', isFav: true},
+        {title: 'wind of the name', author: 'rothfuss patrick',img:'assets/2.jpg', isFav: false},
+        {title: 'of the wind name', author: 'p. rothfuss',img:'assets/3.jpg', isFav: true},
         
       ]
     }
